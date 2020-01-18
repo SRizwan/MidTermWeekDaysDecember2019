@@ -2,7 +2,7 @@ package design;
 
 import java.util.Scanner;
 
-public class EmployeeInfo extends EmployeeAbstract implements Employee{
+public class EmployeeInfo extends EmployeeAbstract{
 	
  /*This class can be implemented from Employee interface then add additional methods in EmployeeInfo class.
  * Also, Employee interface can be implemented into an abstract class.So create an Abstract class
@@ -32,11 +32,32 @@ public class EmployeeInfo extends EmployeeAbstract implements Employee{
 	 * you must have multiple constructor.
 	 * Must implement below constructor.
 	 */
-	public EmployeeInfo(int employeeId){
-		
+
+	int employeeID;
+	String employeeName;
+	public EmployeeInfo(int employeeId) {
+
+		this.employeeID = employeeId;
+		System.out.println("Employee ID is: " + employeeId);
+
 	}
-    public EmployeeInfo(String name, int employeeId){
-		
+
+	public EmployeeInfo(String name, int employeeId) {
+
+		this.employeeName = name;
+		System.out.println("Name is: " + name + " and ID is: " + employeeId);
+
+
+	}
+
+	void benefits() {
+		System.out.println("there are benefits in employee info class");
+	}
+
+	void employeebenefits(){
+		benefits();
+
+		super.benefits();
 	}
 	
 	/*
@@ -47,8 +68,32 @@ public class EmployeeInfo extends EmployeeAbstract implements Employee{
 	 * So you probably need to send 2 arguments.
 	 * 
 	 */
-	public static int calculateEmployeeBonus(int numberOfYearsWithCompany){
-		int total=0;
+	public static double calculateEmployeeBonus(int numberOfYearsWithCompany, double salary, String performance) {
+
+		double bonus;
+		double total;
+		switch (performance) {
+			case "best":
+				bonus = salary * 0.1;
+				break;
+			case "average":
+				bonus = salary * 0.08;
+				break;
+			case "poor":
+				bonus = salary * 0.06;
+				break;
+			default:
+				bonus = salary * 0.04;
+		}
+
+		if(numberOfYearsWithCompany >= 20) {
+			total = bonus * 1.50;
+		} else if(numberOfYearsWithCompany >= 10) {
+			total = bonus * 1.25;
+		} else {
+			total = bonus * 1;
+		}
+		System.out.println("Employee bonus is: " + total);
 		return total;
 	}
 	
@@ -76,30 +121,7 @@ public class EmployeeInfo extends EmployeeAbstract implements Employee{
 		return total;
 	}
 
-	@Override
-	public int employeeId() {
-		return 0;
-	}
 
-	@Override
-	public String employeeName() {
-		return null;
-	}
-
-	@Override
-	public void assignDepartment() {
-
-	}
-
-	@Override
-	public int calculateSalary() {
-		return 0;
-	}
-
-	@Override
-	public void benefitLayout() {
-
-	}
 
 	private static class DateConversion {
 
