@@ -54,58 +54,9 @@ public class Sort {
         
         return list;
     }
-    
 
-    public int [] mergeSort(int [] array){
-        int [] list = array;
-        //implement here
-        
-        
 
-        return list;
-    }
-    
-
-    public int [] quickSort(int [] array){
-        int [] list = array;
-        //implement here
-        
-        
-
-        return list;
-    }
-    
-    public int [] heapSort(int [] array){
-        int [] list = array;
-        //implement here
-        
-        
-
-        return list;
+    public void quickSort(int[] num, int low, int high) {
     }
 
-
-    public int [] bucketSort(int [] array){
-        int [] list = array;
-        //implement here
-        
-        
-
-        return list;
-    }
-    
-    public int [] shellSort(int [] array){
-        int [] list = array;
-        //implement here
-        
-        
-
-        return list;
-    }
-
-    public static void printSortedArray(int [] array){
-        for(int i=0; i<array.length; i++){
-            System.out.println(array[i]);
-        }
-    }
 }

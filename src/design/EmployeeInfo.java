@@ -20,7 +20,7 @@ public class EmployeeInfo extends EmployeeAbstract{
 	/*
 	 * declare few static and final fields and some non-static fields
 	 */
-	static String companyName;
+	public final static String companyName= "PnT";
 	
 	/*
 	 * You must implement the logic for below 2 methods and 

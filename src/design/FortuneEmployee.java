@@ -14,6 +14,15 @@ public class FortuneEmployee {
 	 *
 	 **/
 	public static void main(String[] args) {
+
+		System.out.println(EmployeeInfo.companyName);
+		//Employee information
+		EmployeeInfo Employee1 = new EmployeeInfo("Jannat",1);
+		//Employee ID
+		EmployeeInfo Employee = new EmployeeInfo(1);
+		//Employee Bonus
+		EmployeeInfo.calculateEmployeeBonus(2,12000,"Best" );
+
 		
 
 
