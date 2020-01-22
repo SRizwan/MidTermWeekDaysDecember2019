@@ -20,7 +20,7 @@ public class Numbers {
 
     public static void main(String[] args) throws Exception {
 
-        int[] num = new int[1000000];
+        int[] num = new int[10];
         storeRandomNumbers(num);
         ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
         //Selection Sort
@@ -39,6 +39,31 @@ public class Numbers {
         System.out.println("Total Execution Time of " + num.length + " numbers in Insertion Sort take: " + insertionSortExecutionTime + " milli sec");
 
         //By following above, Continue for rest of the Sorting Algorithm....
+
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "Insertion_Sort", "SortingNumbers");
+        //printValue(numbers);
+        //Sort.printSortedArray(num);
+
+        //printValue(numbers);
+        randomize (num, n);
+
+
+
+        //Buubble Sort
+        algo.bubbleSort(num);
+        System.out.println("BUBBLE SORT");
+        long bubbleSortExecutionTime = algo.executionTime;
+        System.out.println("Total Execution Time of " + num.length + " numbers in Insertion Sort take: " + bubbleSortExecutionTime + " milli sec");
+        connectToSqlDB.insertDataFromArrayToSqlTable(num, "Bubble_Sort", "SortingNumbers");
+        //Sort.printSortedArray(num);
+
+        //printValue(numbers);
+        randomize (num, n);
+
+
+
+        //By following above, Continue for rest of the Sorting Algorithm....
+
         //Merge Sort
         algo.MergeSort(num);
         System.out.println("MERGE SORT");
@@ -48,12 +73,12 @@ public class Numbers {
         //Sort.printSortedArray(num);
 
 //printValue(numbers);
-        randomize(num, n);
+        randomize (num, n);
 
 //Quick Sort
 
-        int low = 0;
-        int high = num.length - 1;
+        int low= 0;
+        int high = num.length-1;
         algo.quickSort(num, low, high);
         long quickSortExecutionTime = algo.executionTime;
         System.out.println("Total Execution Time of " + num.length + " numbers in Quick Sort take: " + quickSortExecutionTime + " milli sec");
@@ -62,7 +87,7 @@ public class Numbers {
         Sort.printSortedArray(num);
 
 //printValue(numbers);
-        randomize(num, n);
+        randomize (num, n);
 
 //Heap Sort
         algo.heapSort(num);
@@ -73,7 +98,7 @@ public class Numbers {
 //Sort.printSortedArray(num);
 
 //printValue(numbers);
-        randomize(num, n);
+        randomize (num, n);
 
 //Bucket Sort
         algo.bucketSort(num);
@@ -84,7 +109,7 @@ public class Numbers {
 //Sort.printSortedArray(num);
 
 //printValue(numbers);
-        randomize(num, n);
+        randomize (num, n);
 
 //Shell Sort
         algo.shellSort(num);
@@ -95,7 +120,31 @@ public class Numbers {
 //Sort.printSortedArray(num);
 
 //printValue(numbers);
-        randomize(num, n);
+        randomize (num, n);
+//Come to conclusion about which Sorting Algo is better in given data set.
+
+
+    }
+    public static int findLow(int[] array){
+        int low = array[0];
+        for(int n: array){
+            if(n < low){
+                low = n;
+            }
+        }
+        return low;
+    }
+
+    public static int findHigh(int[] array){
+        int high = array[0];
+        for(int n: array){
+            if(n > high){
+                high = n;
+            }
+        }
+        return high;
+
+
 
 
         //Come to conclusion about which Sorting Algo is better in given data set.
@@ -111,7 +160,7 @@ public class Numbers {
 
     public static void randomize(int arr[], int n) {
         Random r = new Random();
-        // Start from the last element and swap one by one. We don't.
+        // Start from the last element and swap one by one. We don't
         // need to run for the first element that's why i > 0
         for (int i = n - 1; i > 0; i--) {
             int j = r.nextInt(i);
@@ -124,6 +173,7 @@ public class Numbers {
     public static void printValue(List<String> array) {
         for (String st : array) {
             System.out.println(st);
+
         }
     }
 }
